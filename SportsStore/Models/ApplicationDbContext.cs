@@ -14,7 +14,7 @@ namespace SportsStore.Models
             : base(options) { }
         
         public DbSet<Product> Products { get; set; }
-
+        
         /********************************************************************
          * Базовый класс DbContext предоставляет доступ к лежащей в основе
          * функциональности EFCore.
