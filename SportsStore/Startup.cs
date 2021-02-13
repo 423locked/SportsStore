@@ -53,7 +53,7 @@ namespace SportsStore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Product}/{action=List}/{id?}");
             });
         }
     }
