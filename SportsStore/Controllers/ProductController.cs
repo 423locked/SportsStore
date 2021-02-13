@@ -14,5 +14,8 @@ namespace SportsStore.Controllers
         private IProductRepository repository;
 
         public ProductController(IProductRepository repo) { repository = repo; }
+
+        // Передаем в представление repository.Products (по сути таблицу продуктов из БД)
+        public ViewResult List() => View(repository.Products);
     }
 }
