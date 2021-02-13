@@ -13,4 +13,12 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App"></FrameworkReference>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet"></DotNetCliToolReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
