@@ -1,22 +1,18 @@
-﻿@model IEnumerable<Product>
-   
-@*  
-    Выражение сверху указывает, что представление будет получать от метода действия
-    последовательность объектов Product в качестве данных модели. 
-*@
+﻿@model ProductsListViewModel
 
 @{
 
 }
 
-@foreach (var p in Model)
+@foreach (var p in Model.Products)
 {
     <div>
         <h3>@p.Name</h3>
         @p.Description
         <h4>@p.Price.ToString("c")</h4>
-        @* Приведение .ToString("c") указывает, что данные должны быть 
-           отформатированы учитывая локальный стандарт сервера: $, евро или еще что-либо.*@
+        @* Приведение .ToString("c") указывает, что данные должны быть
+            отформатированы учитывая локальный стандарт сервера: $, евро или еще что-либо.*@
     </div>
 }
 
+<div page-model="@Model.PagingInfo" page-action="List"></div>
