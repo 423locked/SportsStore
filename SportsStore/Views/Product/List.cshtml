@@ -1,18 +1,18 @@
 ﻿@model ProductsListViewModel
 
 @{
-
+    Layout = "_Layout";
 }
 
-@foreach (var p in Model.Products)
-{
+<div class="product-cards-layout">
     <div>
-        <h3>@p.Name</h3>
-        @p.Description
-        <h4>@p.Price.ToString("c")</h4>
-        @* Приведение .ToString("c") указывает, что данные должны быть
-            отформатированы учитывая локальный стандарт сервера: $, евро или еще что-либо.*@
-    </div>
-}
+        @foreach (var p in Model.Products)
+         {
+            @Html.Partial("ProductSummary", p);
+         }
 
-<div page-model="@Model.PagingInfo" page-action="List"></div>
+        <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-secondary" page-class-selected="btn-primary"
+             class="btn-group" role="group"></div>
+    </div>
+</div>

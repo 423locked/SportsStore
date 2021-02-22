@@ -1,0 +1,13 @@
+﻿@model Product
+
+@{
+
+}
+
+<div class="card text-black-80 bg-light mb-3" style="max-width: 18rem; min-width: 30vw;">
+    <div class="card-header"><h2>@Model.Name</h2></div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Description</h5>
+        <h3 class="card-text product-price">@Model.Price.ToString("c")</h3>
+    </div>
+</div>
