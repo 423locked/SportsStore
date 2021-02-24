@@ -55,14 +55,37 @@ namespace SportsStore
 
             app.UseEndpoints(endpoints =>
             {
+                // Выводит определенную страницу товаров заданной категории
+                // /Soccer/Page2
                 endpoints.MapControllerRoute(
-                    name: "pagination",
-                    pattern: "Products/Page{productPage}",
+                    name: null,
+                    pattern: "{category}/Page{productPage:int}",
                     defaults: new { Controller = "Product", Action = "List" });
 
+                // Выводит страницу пагинации списка товаров всех категорий
+                // /Page2
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Product}/{action=List}/{id?}");
+                    name: null,
+                    pattern: "Page{productPage:int}",
+                    defaults: new { Controller = "Product", Action = "List", productPage = 1 });
+
+                // Выводит первую страницу товаров выбранной категории
+                // /Soccer
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "{category}",
+                    defaults: new { Controller = "Product", Action = "List", productPage = 1 });
+
+                //Выводит первую страницу списка товаров всех категорий.
+                // /
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "",
+                    defaults: new { Controller = "Product", Action = "List", productPage = 1 });
+
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "{controller}/{action}/{id?}");
             });
 
             SeedData.EnsurePopulated(app);

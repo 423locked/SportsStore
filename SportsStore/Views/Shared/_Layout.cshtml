@@ -14,7 +14,8 @@
     </nav>
 
     <div id="categories">
-        Put something useful here later.
+        @await Component.InvokeAsync("NavigationMenu"); 
+        <!--Асинхронно вызываем компонент NavigationMenuViewComponent из Components/-->
     </div>
 
     <div>
