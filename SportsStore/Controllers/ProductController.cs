@@ -30,7 +30,11 @@ namespace SportsStore.Controllers
             {
                 CurrentPage = productPage,
                 ItemsPerPage = PageSize,
-                TotalItems = repository.Products.Count()
+                TotalItems = category == null
+                    ? repository.Products.Count()
+                    : repository.Products.Where(x => x.Category == category).Count()
+                /* Если категория пуста, т.е. вывод главной страницы с товарами всех категорий, 
+                 * иначе - посчитай количество товаров, для которых категория равна текущей категории category. */
             },
 
             CurrentCategory = category

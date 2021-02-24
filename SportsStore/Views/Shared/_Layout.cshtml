@@ -6,21 +6,24 @@
     <title>SportsStore</title>
     <link rel="stylesheet" asp-href-include="~/lib/bootstrap/css/*.min.css"
           asp-href-exclude="~/lib/bootstrap/css/*-reboot*, ~/lib/bootstrap/css/*-grid*"/>
-    <link rel="stylesheet" href="~/Layout/layout.css" />
+    <link rel="stylesheet" href="~/Layout/Layout.css" />
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <a href="#"><h2 class="navbar-brand">SPORTS STORE</h2></a>
     </nav>
 
-    <div id="categories">
-        @await Component.InvokeAsync("NavigationMenu"); 
-        <!--Асинхронно вызываем компонент NavigationMenuViewComponent из Components/-->
-    </div>
+    <div class="grid-container">
+        <div class="navbar-categories">
+            <div class="categories" id="categories">
+                @await Component.InvokeAsync("NavigationMenu")
+                <!--Асинхронно вызываем компонент NavigationMenuViewComponent из Components/-->
+            </div>
+        </div>
 
-    <div>
-        @RenderBody()
+        <div class="products-body">
+            @RenderBody()
+        </div>
     </div>
-    
 </body>
 </html>
